@@ -206,6 +206,21 @@ public class CameraView extends ViewGroup implements
   public boolean isAutoFocusAvailable() {
     return(inPreview);
   }
+  
+  public String getFlashMode() {
+    return camera.getParameters().getFlashMode();
+  }
+  
+  public String setFlashMode(String flashMode) {
+    if (!Arrays.asList(Camera.Parameters.FLASH_MODE_AUTO,
+                    Camera.Parameters.FLASH_MODE_OFF,
+                    Camera.Parameters.FLASH_MODE_ON,
+                    Camera.Parameters.FLASH_MODE_RED_EYE,
+                    Camera.Parameters.FLASH_MODE_TORCH).contains(flashMode)) {
+      throw new IllegalArgumentException(flashMode + " is a bad value for flash mode.");
+    } 
+    camera.getParameters().setFlashMode(flashMode);
+  }
 
   // based on CameraPreview.java from ApiDemos
 
