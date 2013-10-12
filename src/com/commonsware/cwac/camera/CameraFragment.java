@@ -99,6 +99,14 @@ public class CameraFragment extends Fragment {
     cameraView.cancelAutoFocus();
   }
   
+  public void setFlashMode(String flashMode) {
+    cameraView.setFlashMode(flashMode);
+  }
+  
+  public String getFlashMode() {
+    return cameraView.getFlashMode();
+  }
+  
   public boolean isAutoFocusAvailable() {
     return(cameraView.isAutoFocusAvailable());
   }
